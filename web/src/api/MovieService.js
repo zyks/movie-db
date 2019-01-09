@@ -8,7 +8,7 @@ class MovieService {
         this.baseUrl = `http://www.omdbapi.com/?apiKey=${apiKey}`;
     }
 
-    getMovies(pattern, page) {
+    getMovies = (pattern, page) => {
         const url = `${this.baseUrl}&s=${pattern}&page=${page}`;
         return axios.get(url);
     }

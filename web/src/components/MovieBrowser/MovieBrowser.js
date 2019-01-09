@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import MovieService from '../../api/MovieService';
 import MovieList from '../MovieList/MovieList';
 
@@ -11,7 +12,10 @@ import MovieList from '../MovieList/MovieList';
             movies: [],
             isLoading: false,
         }
-        this.service = new MovieService('ee2d0533');
+    }
+
+    static propTypes = {
+        service: PropTypes.instanceOf(MovieService).isRequired,
     }
 
     componentDidMount() {
@@ -21,7 +25,7 @@ import MovieList from '../MovieList/MovieList';
     getMovies = async () => {
         try {
             this.setState({ isLoading: true });
-            const response = await this.service.getMovies('abc', 1);
+            const response = await this.props.service.getMovies('abc', 1);
             this.setState({
                 isLoading: false,
                 movies: response.data.Search,
@@ -33,7 +37,7 @@ import MovieList from '../MovieList/MovieList';
 
     render() {
         return (
-            <div>
+            <div className="movieList">
                 <MovieList movies={ this.state.movies } isLoading={ this.state.isLoading } />
             </div>
         );
