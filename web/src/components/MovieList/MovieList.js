@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import MovieCard from '../MovieCard/MovieCard';
+import './MovieList.css';
 
 
 class MovieList extends Component {
@@ -25,8 +27,14 @@ class MovieList extends Component {
             <div>
                 {
                     movies.map((movie, i) => 
-                        <div key={ i }>
-                            { movie.Title }
+                        <div key={ i } className="movieListItem">
+                            <MovieCard 
+                                title={ movie.Title }
+                                year={ movie.Year }
+                                type={ movie.Type }
+                                poster={ movie.Poster !== 'N/A' ? movie.Poster : null }
+                                id={ movie.imdbID }
+                            />
                         </div>
                     )
                 }
