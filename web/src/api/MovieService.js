@@ -13,6 +13,11 @@ class MovieService {
         return axios.get(url);
     }
 
+    getMovie = (imdbID) => {
+        const url = `${this.baseUrl}&i=${imdbID}`;
+        return axios.get(url);
+    }
+
 }
 
 

@@ -1,0 +1,29 @@
+.detailsContainer {
+    display: inline-block;
+    width: 100%;
+}
+
+.detailsPosterContainer {
+    display: inherit;
+    width: 20em;
+}
+
+.detailsPoster {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 100%;
+    vertical-align: center;
+}
+
+.descriptionContainer {
+    display: inherit;
+    padding: 0.5em;
+    margin-left: 1em;
+    vertical-align: top;
+    width: 40em;
+}
+
+.detailTitle {
+    font-size: 1.5em;
+    margin-bottom: 0.5em;
+}
