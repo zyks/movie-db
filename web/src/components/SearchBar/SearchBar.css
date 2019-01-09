@@ -1,0 +1,27 @@
+.searchInputContainer {
+    width: 30em;
+    display: inline-block;
+    font-size: 1.2em;
+    margin: 0.5em 0.5em 0.5em 0;
+}
+
+input[type=text] {
+    width: 100%;
+    padding: 0.5em;
+    box-sizing: border-box;
+}
+
+.searchButtonContainer {
+    display: inline-block;
+    margin: 0.5em;
+}
+
+.searchButton {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 0.6em 1.5em;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+}
