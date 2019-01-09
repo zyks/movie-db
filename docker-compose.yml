@@ -1,0 +1,30 @@
+---
+version: '3'
+
+
+services:
+
+  database:
+    build: services/database
+    hostname: "database"
+
+  backend:
+    build: backend
+    volumes:
+      - ./backend:/code
+    hostname: "backend_app"
+    ports:
+      - "8000:8000"
+    depends_on:
+      - database
+
+  web:
+    build: web
+    privileged: true
+    volumes:
+      - ./web/:/usr/src/app
+    hostname: "web_app"
+    ports:
+      - "3000:3000"
+
+...
