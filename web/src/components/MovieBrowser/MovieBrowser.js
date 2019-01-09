@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import MovieService from '../../api/MovieService';
 import MovieList from '../MovieList/MovieList';
 import Pagination from '../Pagination/Pagination';
+import SearchBar from '../SearchBar/SearchBar';
 import './MovieBrowser.css';
 
 
@@ -23,12 +24,15 @@ import './MovieBrowser.css';
         service: PropTypes.instanceOf(MovieService).isRequired,
     }
 
-    componentDidMount() {
-        this.getMovies();
-    }
-
     onPageChange = (newNumber) => {
         this.setState({ currentPage: newNumber}, this.getMovies);
+    }
+
+    onSearchClicked = (newPattern) => {
+        this.setState({
+            searchPattern: newPattern,
+            currentPage: 1,
+        }, this.getMovies);
     }
 
     getMovies = async () => {
@@ -52,6 +56,7 @@ import './MovieBrowser.css';
     render() {
         return (
             <div>
+                <SearchBar callback={ this.onSearchClicked } />
                 <div className="movieList">
                     <MovieList movies={ this.state.movies } isLoading={ this.state.isLoading } />
                 </div>
