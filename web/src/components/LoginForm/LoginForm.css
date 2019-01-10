@@ -1,0 +1,30 @@
+.loginFormContainer {
+    padding: 1em;
+    width: 40%;
+    min-width: 30em;
+    margin: auto;
+    border: 1px solid #f1f1f1;
+}
+
+input[type=text].loginFromInput, input[type=password].loginFromInput {
+    width: 100%;
+    padding: 0.5em;
+    margin: 0.5em 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 0.6em 1.5em;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
+
+button:hover {
+    opacity: 0.8;
+}
