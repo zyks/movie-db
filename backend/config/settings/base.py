@@ -90,7 +90,7 @@ default_psql = {
 }
 
 DATABASES = {
-    'default': default_sqlite3
+    'default': default_psql
 }
 
 
