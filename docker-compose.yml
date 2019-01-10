@@ -21,8 +21,8 @@ services:
   web:
     build: web
     privileged: true
-    volumes:
-      - ./web/:/usr/src/app
+    # volumes:
+    #   - ./web/:/usr/src/app
     hostname: "web_app"
     ports:
       - "3000:3000"
