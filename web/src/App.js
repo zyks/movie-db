@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
-import { BrowserRouter, Route } from 'react-router-dom';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import MovieService from './api/MovieService';
 import MovieBrowser from './components/MovieBrowser/MovieBrowser';
 import MovieDetails from './components/MovieDetails/MovieDetails';
-import './App.css';
+import LoginForm from './components/LoginForm/LoginForm';
+import LogoutPage from './components/LoginForm/LogoutPage';
+import PrivateRoute from './utils/PrivateRoute';
 
 
 class App extends Component {
@@ -17,20 +19,26 @@ class App extends Component {
         return (
             <div className="App">
                 <BrowserRouter>
-                    <div>
-                        <Route 
-                            exact path="/"  
-                            render={ (props) => <MovieBrowser {...props} service={ this.service } /> }
+                    <Switch>
+                        <PrivateRoute 
+                            exact path="/"
+                            component={ MovieBrowser }
+                            service={ this.service }
                         />
-                        <Route 
+                        <Route path="/login" component={ LoginForm } />
+                        <Route path="/logout" component={ LogoutPage } />
+                        <PrivateRoute 
                             path="/:imdbID"
-                            render={ (props) => <MovieDetails {...props} service={ this.service } /> }
+                            component={ MovieDetails }
+                            service={ this.service }
                         />
-                    </div>
+                    </Switch>
                 </BrowserRouter>
             </div>
         );
     }
+
 }
+
 
 export default App;
