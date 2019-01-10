@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import MovieService from '../../api/MovieService';
+import Navbar from '../Navbar/Navbar';
 import no_image from '../../img/no_image.png';
 import './MovieDetails.css';
 
@@ -45,23 +46,26 @@ class MovieDetails extends Component {
         } = this.state.movieData;
 
         return (
-            <div className="detailsContainer">
-                <div className="detailsPosterContainer">
-                    <img 
-                        src={ Poster !== 'N/A' ? Poster : no_image } 
-                        className="detailsPoster" 
-                        alt="movie detail poster"/>
-                </div>
-                <div className="descriptionContainer">
-                    <div className="detailTitle">{ Title } ({ Year })</div>
-                    <div>{ Plot }</div>
-                    <hr/>
-                    <div>directed by: { Director }</div>
-                    <div>cast: { Actors }</div>
-                    <div>language: { Language }</div>
-                    <div>genre: { Genre }</div>
-                    <div>time: { Runtime }</div>
-                    <div>box office: { BoxOffice }</div>
+            <div>
+                <Navbar />
+                <div className="detailsContainer">
+                    <div className="detailsPosterContainer">
+                        <img 
+                            src={ Poster !== 'N/A' ? Poster : no_image } 
+                            className="detailsPoster" 
+                            alt="movie detail poster"/>
+                    </div>
+                    <div className="descriptionContainer">
+                        <div className="detailTitle">{ Title } ({ Year })</div>
+                        <div>{ Plot }</div>
+                        <hr/>
+                        <div>directed by: { Director }</div>
+                        <div>cast: { Actors }</div>
+                        <div>language: { Language }</div>
+                        <div>genre: { Genre }</div>
+                        <div>time: { Runtime }</div>
+                        <div>box office: { BoxOffice }</div>
+                    </div>
                 </div>
             </div>
         );

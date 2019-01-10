@@ -4,6 +4,7 @@ import MovieService from '../../api/MovieService';
 import MovieList from '../MovieList/MovieList';
 import Pagination from '../Pagination/Pagination';
 import SearchBar from '../SearchBar/SearchBar';
+import Navbar from '../Navbar/Navbar';
 import './MovieBrowser.css';
 
 
@@ -16,7 +17,7 @@ import './MovieBrowser.css';
             isLoading: false,
             currentPage: 1,
             pagesNumber: 1,
-            searchPattern: 'abc',
+            searchPattern: '',
         }
     }
 
@@ -56,15 +57,18 @@ import './MovieBrowser.css';
     render() {
         return (
             <div>
-                <SearchBar callback={ this.onSearchClicked } />
-                <div className="movieList">
-                    <MovieList movies={ this.state.movies } isLoading={ this.state.isLoading } />
+                <Navbar />
+                <div className="browserContainer">
+                    <SearchBar callback={ this.onSearchClicked } />
+                    <div className="movieList">
+                        <MovieList movies={ this.state.movies } isLoading={ this.state.isLoading } />
+                    </div>
+                    <Pagination
+                        currentPage={ this.state.currentPage }
+                        pagesNumber={ this.state.pagesNumber }
+                        callback={ this.onPageChange }
+                        />
                 </div>
-                <Pagination
-                    currentPage={ this.state.currentPage }
-                    pagesNumber={ this.state.pagesNumber }
-                    callback={ this.onPageChange }
-                />
             </div>
         );
     }
